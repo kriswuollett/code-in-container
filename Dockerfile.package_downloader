@@ -1,0 +1,2 @@
+FROM alpine AS package_downloader
+RUN apk add --no-cache curl xz rsync gnupg

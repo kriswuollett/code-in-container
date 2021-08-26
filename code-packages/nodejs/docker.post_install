@@ -1,0 +1,1 @@
+ENV PATH=/opt/nodejs/${NODEJS_VERSION}/linux-x64/bin:${PATH}

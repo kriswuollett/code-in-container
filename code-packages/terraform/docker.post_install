@@ -1,0 +1,1 @@
+ENV PATH=/opt/terraform/${TERRAFORM_VERSION}/bin:${PATH}

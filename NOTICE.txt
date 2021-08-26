@@ -1,5 +1,12 @@
 NOTICES AND INFORMATION
 
+This software is licensed with the MIT License.
+
+It may be modified, renamed, or removed at any time. It is the user's
+responsibility to only use an appropriate version of the software for their
+usage, and make a backup of the software in case it is no longer generally
+available. 
+
 This software incorporates material from third parties.
 
 It is the user's responsibility to ensure that usage of this software complies

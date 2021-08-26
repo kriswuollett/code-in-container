@@ -1,0 +1,1 @@
+ENV PATH=/opt/awscli/${AWSCLI_VERSION}/bin:${PATH}

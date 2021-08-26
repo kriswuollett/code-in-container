@@ -1,0 +1,8 @@
+FROM package_downloader AS nodejs_package
+ARG NODEJS_VERSION
+ARG NODEJS_ORDER
+RUN mkdir -p /package/opt/nodejs/${NODEJS_VERSION}/linux-x64 /package/etc/profile.d/
+RUN curl https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}-linux-x64.tar.xz \
+    | tar --strip-components=1 --directory=/package/opt/nodejs/${NODEJS_VERSION}/linux-x64 -Jxf -
+COPY library-scripts/bin-path.sh /package/etc/profile.d/${NODEJS_ORDER}-nodejs-${NODEJS_VERSION}-path.sh
+RUN sed -i -e "s#{{BIN_PATH}}#/opt/nodejs/${NODEJS_VERSION}/linux-x64/bin#g" /package/etc/profile.d/${NODEJS_ORDER}-nodejs-${NODEJS_VERSION}-path.sh
