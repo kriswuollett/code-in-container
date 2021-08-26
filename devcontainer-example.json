@@ -1,5 +1,6 @@
 {
   "name": "Code in Container",
+  "initializeCommand": "./.devcontainer/code-in-container/initialize.sh",
   "dockerFile": ".devcontainer/Dockerfile",
   "runArgs": ["--init"],
   "mounts": [
@@ -10,6 +11,10 @@
     "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
   },
   "settings": {},
-  "extensions": ["ms-azuretools.vscode-docker"],
+  "extensions": [
+    "ms-azuretools.vscode-docker",
+    "hashicorp.terraform",
+    "amazonwebservices.aws-toolkit-vscode"
+  ],
   "remoteUser": "vscode"
 }

@@ -6,6 +6,6 @@ RUN unzip terraform.zip
 RUN chmod +x terraform
 RUN mkdir -p /package/opt/terraform/${TERRAFORM_VERSION}/bin
 RUN mv terraform /package/opt/terraform/${TERRAFORM_VERSION}/bin/
-COPY library-scripts/bin-path.sh /package/etc/profile.d/${TERRAFORM_ORDER}-terraform-${TERRAFORM_VERSION}-path.sh
-RUN sed -i -e "s#{{BIN_PATH}}#/opt/terraform/${TERRAFORM_VERSION}/bin/#g" /package/etc/profile.d/${TERRAFORM_ORDER}-terraform-${TERRAFORM_VERSION}-path.sh
+COPY code-in-container/library-scripts/bin-path.sh /package/etc/profile.d/${TERRAFORM_ORDER}-terraform-${TERRAFORM_VERSION}-path.sh
+RUN sed -i -e "s#{{BIN_PATH}}#/opt/terraform/${TERRAFORM_VERSION}/bin#g" /package/etc/profile.d/${TERRAFORM_ORDER}-terraform-${TERRAFORM_VERSION}-path.sh
 RUN echo "complete -C /opt/terraform/${TERRAFORM_VERSION}/bin/terraform terraform" > /package/etc/profile.d/${TERRAFORM_ORDER}-terraform-${TERRAFORM_VERSION}-autocomplete.sh

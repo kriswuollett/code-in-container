@@ -9,5 +9,5 @@ RUN rm -rf /package/opt/awscli-bin
 RUN mv /package/opt/awscli-install/v2 /package/opt/awscli/${AWSCLI_VERSION}
 RUN rm -rf /package/opt/awscli-install
 RUN rm -f /package/opt/awscli/${AWSCLI_VERSION}/current
-COPY library-scripts/bin-path.sh /package/etc/profile.d/${AWSCLI_ORDER}-awscli-${AWSCLI_VERSION}-path.sh
+COPY code-in-container/library-scripts/bin-path.sh /package/etc/profile.d/${AWSCLI_ORDER}-awscli-${AWSCLI_VERSION}-path.sh
 RUN sed -i -e "s#{{BIN_PATH}}#/opt/awscli/${AWSCLI_VERSION}/bin#g" /package/etc/profile.d/${AWSCLI_ORDER}-awscli-${AWSCLI_VERSION}-path.sh
