@@ -1,20 +1,24 @@
 {
-  "name": "Code in Container",
+  "name": "my_project",
   "initializeCommand": "./.devcontainer/code-in-container/initialize.sh",
-  "dockerFile": ".devcontainer/Dockerfile",
+  "dockerFile": "Dockerfile",
   "runArgs": ["--init"],
+  "workspaceFolder": "/workspace/my_project",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/my_project,type=bind,consistency=delegated",
   "mounts": [
-    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+    "source=${localEnv:HOME}/.Xauthority,target=/home/vscode/.Xauthority,type=bind,readonly",
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,readonly"
   ],
   "overrideCommand": false,
-  "remoteEnv": {
-    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
-  },
   "settings": {},
   "extensions": [
     "ms-azuretools.vscode-docker",
     "hashicorp.terraform",
     "amazonwebservices.aws-toolkit-vscode"
   ],
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "remoteEnv": {
+    "HOST_PROJECT_PATH": "${localWorkspaceFolder}"
+  }
 }
