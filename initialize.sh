@@ -89,9 +89,7 @@ END
             cat <<END
 # Install apt packages
 
-RUN apt-get update \\
-    && export DEBIAN_FRONTEND=noninteractive \\
-    && apt-get -y install --no-install-recommends${APT_PACKAGES}
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && apt-get -y install --no-install-recommends${APT_PACKAGES}
 END
         )"
     fi
