@@ -80,8 +80,7 @@ END
 
     DOCKERFILE="${DOCKERFILE_ARG_VALUES?}"$'\n\n'"${DOCKERFILE_HEADER?}"
     DOCKERFILE="${DOCKERFILE?}"$'\n\n'"${DOCKERFILE_BUILD_PACKAGES?}"
-    DOCKERFILE="${DOCKERFILE?}"$'\n\n'"$(<.devcontainer/code-in-container/Dockerfile.docker_debian)"
-    # DOCKERFILE="${DOCKERFILE?}"$'\n\n'"$(<.devcontainer/code-in-container/Dockerfile.docker_in_docker)"
+    DOCKERFILE="${DOCKERFILE?}"$'\n\n'"$(<.devcontainer/code-in-container/Dockerfile.docker_in_docker)"
     DOCKERFILE="${DOCKERFILE?}"$'\n\n'"$(<.devcontainer/code-in-container/Dockerfile.devcontainer)"
     DOCKERFILE="${DOCKERFILE?}"$'\n'"${DOCKERFILE_PACKAGE_ARGS?}"
 

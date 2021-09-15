@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../../:/workspace:cached
+      - ${HOME}/.Xauthority:/home/vscode/.Xauthority:ro
+      - var-lib-docker:/var/lib/docker
+      - home-config:/home/vscode/.config
+      - home-kube:/home/vscode/.kube
+    environment:
+      - DISPLAY=host.docker.internal:0
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    network_mode: service:registry
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    privileged: true
+    init: true
+  registry:
+    image: registry:2
+    restart: unless-stopped
+volumes:
+  home-config:
+  home-kube:
+  var-lib-docker:

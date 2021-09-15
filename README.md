@@ -35,11 +35,11 @@ CODE_IN_CONTAINER_VERSION=0.0.1
   && cd code-in-container  \
   && git checkout v${CODE_IN_CONTAINER_VERSION} \
   && cp devcontainer-example.json ../devcontainer.json \
-  && cp code-in-container-example.tsv ../code-in-container.tsv)
+  && cp code-in-container-example.tsv ../code-in-container.tsv \
+  && cp post-create-example.sh ../post-create.sh)
 ```
 
-Edit `.devcontainer/code-in-container.tsv` and `.devcontainer/devcontainer.json` as needed. The
-`code-in-container.tsv` is tab-delimited with the following columns:
+Edit the copied files as needed. The `code-in-container.tsv` is tab-delimited with the following columns:
 
 | Column     | Description                                                                            |
 | ---------- | -------------------------------------------------------------------------------------- |
