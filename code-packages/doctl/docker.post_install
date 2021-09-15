@@ -1,0 +1,1 @@
+ENV PATH=/opt/doctl/${DOCTL_VERSION}/bin:${PATH}

@@ -1,0 +1,7 @@
+FROM package_downloader AS doctl_package
+ARG DOCTL_VERSION
+ARG DOCTL_ORDER
+RUN mkdir -p /package/opt/doctl/${DOCTL_VERSION}/bin /package/etc/profile.d/
+COPY code-in-container/library-scripts/bin-path.sh /package/etc/profile.d/${DOCTL_ORDER}-doctl-${DOCTL_VERSION}-path.sh
+RUN sed -i -e "s#{{BIN_PATH}}#/opt/doctl/${DOCTL_VERSION}/bin#g" /package/etc/profile.d/${DOCTL_ORDER}-doctl-${DOCTL_VERSION}-path.sh
+RUN curl -L https://github.com/digitalocean/doctl/releases/download/v${DOCTL_VERSION}/doctl-${DOCTL_VERSION}-linux-amd64.tar.gz | tar -C /package/opt/doctl/${DOCTL_VERSION}/bin -zxf - doctl
