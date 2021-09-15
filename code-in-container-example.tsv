@@ -1,5 +1,6 @@
 _	10	nodejs	16.7.0
 _	10	awscli	2.2.32
 _	10	terraform	1.0.5
+_	10	golang	1.17.1
 apt	10	vim	_
 apt	10	x11-apps	_

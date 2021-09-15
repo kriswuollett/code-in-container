@@ -1,0 +1,7 @@
+FROM package_downloader AS golang_package
+ARG GOLANG_VERSION
+ARG GOLANG_ORDER
+RUN mkdir -p /package/opt/golang/${GOLANG_VERSION} /package/etc/profile.d/
+COPY code-in-container/library-scripts/bin-path.sh /package/etc/profile.d/${GOLANG_ORDER}-golang-${GOLANG_VERSION}-path.sh
+RUN sed -i -e "s#{{BIN_PATH}}#/opt/golang/${GOLANG_VERSION}/bin#g" /package/etc/profile.d/${GOLANG_ORDER}-golang-${GOLANG_VERSION}-path.sh
+RUN curl -L https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz | tar -C /package/opt/golang/${GOLANG_VERSION} --strip-components=1 -zxf -
