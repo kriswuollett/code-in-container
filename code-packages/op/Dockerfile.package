@@ -1,0 +1,8 @@
+FROM package_downloader AS op_package
+ARG OP_VERSION
+ARG OP_ORDER
+RUN mkdir -p /package/opt/op/${OP_VERSION}/bin /package/etc/profile.d/
+COPY code-in-container/library-scripts/bin-path.sh /package/etc/profile.d/${OP_ORDER}-op-${OP_VERSION}-path.sh
+RUN sed -i -e "s#{{BIN_PATH}}#/opt/op/${OP_VERSION}/bin#g" /package/etc/profile.d/${OP_ORDER}-op-${OP_VERSION}-path.sh
+RUN curl -L https://cache.agilebits.com/dist/1P/op/pkg/v${OP_VERSION}/op_linux_amd64_v${OP_VERSION}.zip | unzip -d /package/opt/op/${OP_VERSION}/bin - op
+RUN chmod +x /package/opt/op/${OP_VERSION}/bin/op

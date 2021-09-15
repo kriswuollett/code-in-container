@@ -1,0 +1,1 @@
+ENV PATH=/opt/op/${OP_VERSION}/bin:${PATH}
